@@ -1,8 +1,14 @@
 {
   "name": "n8n-nodes-forecastr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n node for Forecastr — verifiable AI forecasts with RFC 3161 timestamps",
-  "keywords": ["n8n-community-node-package", "forecastr", "forecast", "AI", "RFC3161"],
+  "keywords": [
+    "n8n-community-node-package",
+    "forecastr",
+    "forecast",
+    "AI",
+    "RFC3161"
+  ],
   "license": "MIT",
   "homepage": "https://forecastr.dev",
   "author": "Forecastr",
@@ -17,8 +23,12 @@
   },
   "n8n": {
     "n8nNodesApiVersion": 1,
-    "credentials": ["dist/credentials/ForecastrApi.credentials.js"],
-    "nodes": ["dist/nodes/Forecastr/Forecastr.node.js"]
+    "credentials": [
+      "dist/credentials/ForecastrApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Forecastr/Forecastr.node.js"
+    ]
   },
   "devDependencies": {
     "typescript": "^5.0.0",
