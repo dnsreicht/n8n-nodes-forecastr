@@ -99,6 +99,16 @@ export class Forecastr implements INodeType {
         default: "my-model-v1",
         displayOptions: { show: { operation: ["submitOutput"] } },
       },
+      {
+        displayName: "Context Hash",
+        name: "contextHash",
+        type: "string",
+        default: "",
+        required: true,
+        displayOptions: { show: { operation: ["submitOutput"] } },
+        description: "SHA-256 hex (64 chars) of the input data your model ran inference on. Required for proof integrity.",
+        placeholder: "a3f2...",
+      },
       // Verify Hash
       {
         displayName: "Result Hash",
@@ -185,11 +195,12 @@ export class Forecastr implements INodeType {
           const modelId = this.getNodeParameter("modelId", i) as string;
           const point_forecast = pfStr.split(",").map((v) => parseFloat(v.trim()));
 
+          const contextHash = this.getNodeParameter("contextHash", i) as string;
           response = await this.helpers.httpRequest({
             method: "POST",
             url: `${baseUrl}/submit-output`,
             headers,
-            body: { asset, horizon, point_forecast, payload_type: "forecast", model_id: modelId },
+            body: { asset, horizon, point_forecast, payload_type: "forecast", model_id: modelId, context_hash: contextHash },
             json: true,
           });
 
