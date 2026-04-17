@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-forecastr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "n8n node for Forecastr — verifiable AI forecasts with RFC 3161 timestamps",
   "keywords": [
     "n8n-community-node-package",
