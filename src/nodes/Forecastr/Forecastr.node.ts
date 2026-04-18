@@ -14,7 +14,7 @@ export class Forecastr implements INodeType {
     icon: "file:forecastr.svg",
     group: ["transform"],
     version: 1,
-    description: "Get verifiable AI forecasts with RFC 3161 timestamps and on-chain SLA settlement",
+    description: "Get verifiable AI forecasts with RFC 3161 timestamps and on-chain proof registry (BYOM or managed inference)",
     defaults: { name: "Forecastr" },
     inputs: ["main"],
     outputs: ["main"],
@@ -35,7 +35,7 @@ export class Forecastr implements INodeType {
           {
             name: "Submit Output",
             value: "submitOutput",
-            description: "Submit your own model output for timestamping",
+            description: "Submit your own model output for RFC 3161 + on-chain proof (BYOM)",
             action: "Submit model output for proof",
           },
           {
@@ -152,7 +152,6 @@ export class Forecastr implements INodeType {
         options: [
           { name: "Manual", value: "manual" },
           { name: "Twitter", value: "twitter" },
-          { name: "Telegram", value: "telegram" },
         ],
         default: "manual",
         displayOptions: { show: { operation: ["anchor"] } },
